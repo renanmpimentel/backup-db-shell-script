@@ -11,18 +11,20 @@ erro=""
 #
 cd $U_PASTA
 #
-# Faz o backup do MySQL
+# Fazer o backup usando o mysqldump
+# mysqldump --opt -h [servidor do banco] -u [usuario] -p [database] > backup.sql 
 #
 mysqldump -h $U_HOST -u $U_USER -p$U_PASSWORD $U_DATABASE > $U_CAMINHO
 # 
 # $? Código de retorno do último comando executado
+# -ne (Diferente)
 # 
 if [ $? -ne 0 ]
 then
     erro="Erro na geracao do SQL"
 fi
 # 
-# Compacta o arquivo
+# Compacta o arquivo com o gzip, veja se o gzip está instalado em seu sistema
 #
 if [ "$erro" == "" ]
 then
@@ -41,11 +43,16 @@ for i in *.sql.gz
 do
     let c=$c+1
 done
-
+#
+# -gt (Maior que)
+#
 if [ $c -gt $n ]
 then
     for i in *.sql.gz
     do
+        #
+        # -le (Menor igual)
+        #
         if [ $c -le $n ]
         then
             break
