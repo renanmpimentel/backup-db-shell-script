@@ -3,9 +3,9 @@ U_PASTA="/home/user/backup-db"
 U_DATA=$(/bin/date +%d-%m-%Y--%H-%M-%S)
 U_CAMINHO="backup-$U_DATA.sql"
 U_HOST="localhost"
-U_USER="root"
-U_PASSWORD="ingasoft"
-U_DATABASE="bunker"
+U_USER="usuario_banco"
+U_PASSWORD="senha_banco"
+U_DATABASE="nome_do_banco"
 #
 erro=""
 #
