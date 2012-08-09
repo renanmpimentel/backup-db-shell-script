@@ -4,8 +4,8 @@ U_DATA=$(/bin/date +%d-%m-%Y--%H-%M-%S)
 U_CAMINHO="backup-$U_DATA.sql"
 U_HOST="localhost"
 U_USER="root"
-U_PASSWORD="******"
-U_DATABASE="nome_do_bando_de_dados"
+U_PASSWORD="ingasoft"
+U_DATABASE="bunker"
 #
 erro=""
 #
@@ -25,6 +25,7 @@ then
 fi
 # 
 # Compacta o arquivo com o gzip, veja se o gzip está instalado em seu sistema
+# Debian/Ubuntu -> apt-get install gzip
 #
 if [ "$erro" == "" ]
 then
@@ -44,15 +45,14 @@ do
     let c=$c+1
 done
 #
+# let -> Adiciona ou remove valores de uma variável
 # -gt (Maior que)
+# -le (Menor igual)
 #
 if [ $c -gt $n ]
 then
     for i in *.sql.gz
     do
-        #
-        # -le (Menor igual)
-        #
         if [ $c -le $n ]
         then
             break
