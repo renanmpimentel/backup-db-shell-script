@@ -10,10 +10,9 @@ U_DATABASE="nome_do_banco"
 erro=""
 #
 cd $U_PASTA
-#
+
 # Fazer o backup usando o mysqldump
 # mysqldump --opt -h [servidor do banco] -u [usuario] -p [database] > backup.sql 
-#
 mysqldump -h $U_HOST -u $U_USER -p$U_PASSWORD $U_DATABASE > $U_CAMINHO
 # 
 # $? Código de retorno do último comando executado
